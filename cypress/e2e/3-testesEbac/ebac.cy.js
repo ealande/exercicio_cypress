@@ -11,6 +11,9 @@ describe('Testes para o exercício da EBAC', () => {
         cy.get('[type="tel"]').type('41 949494494')
         cy.get('.adicionar').click()
         
+        cy.contains('erick lima').should('exist')
+        cy.contains('ericklima@gmail.com').should('exist')
+        cy.contains('41 949494494').should('exist')
     })
 
     it('Deve alterar contato', () => {
@@ -22,6 +25,10 @@ describe('Testes para o exercício da EBAC', () => {
         cy.get('[type="tel"]').type('{selectall}{backspace}')
         cy.get('[type="tel"]').type('41 123123123')
         cy.get('.alterar').click()
+
+        cy.contains('modificado 1').should('exist')
+        cy.contains('modificado1@gmail.com').should('exist')
+        cy.contains('41 123123123').should('exist')
     })
 
     it('Deve remover contato', () => {
